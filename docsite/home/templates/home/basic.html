@@ -19,8 +19,12 @@
     <body>
         <div class="row">
             <ul class="list-group col-md-4">
-            <li class="list-group-item"><a href="#">Login</a></li>
-            <li class="list-group-item"><a href="#">Register</a></li>
+                {% if user.is_authenticated %}
+     <li>User: {{ user.get_username }}</li>
+     <li class="list-group-item"><a href="{% url 'logout'%}?next={{request.path}}">Logout</a></li>
+   {% else %}
+     <li class="list-group-item"><a href="{% url 'login'%}?next={{request.path}}">Login</a></li>
+   {% endif %} 
             </ul>
         <div class="col-md-8">
             <div class="container-fluid">
