@@ -15,9 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.conf.urls import url,include
+from . import views
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
-    url(r'^accounts/', include('django.contrib.auth.urls')),
-    url(r'^',include('home.urls')),
-    url(r'^fillform/',include('fillform.urls')),
+    url(r'^$',views.home,name='home'),
 ]
