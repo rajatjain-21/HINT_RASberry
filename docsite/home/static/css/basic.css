@@ -4,3 +4,10 @@
 .intro{
     font-family: 'Nanum Gothic Coding', monospace;
 }
+#side{
+    margin:1em;
+}
+#main{
+    margin:1em;
+    align-content: center;
+}

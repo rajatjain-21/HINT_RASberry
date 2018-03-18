@@ -10,3 +10,6 @@ class fill(models.Model):
      medicine = models.TextField(blank="")
      upvote=models.IntegerField(default=0)
      downvote=models.IntegerField(default=0)
+
+     def __str__(self):
+         return self.title

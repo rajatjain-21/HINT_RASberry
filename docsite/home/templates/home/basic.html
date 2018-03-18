@@ -4,6 +4,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="{% static 'home/css/basic.css' %}">
             <script src="{% static 'home/js/basic.js' %}"></script>
             <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -17,19 +18,24 @@
         <title>Home Page</title>
     </head>
     <body>
+        <div class="container" >
         <div class="row">
-            <ul class="list-group col-md-4">
+
+            <ul class="list-group col-md-4 well well-sm"  id="side">
                 {% if user.is_authenticated %}
-     <li>User: {{ user.get_username }}</li>
+     <li class="list-group-item">User: {{ user.get_username }}</li>
      <li class="list-group-item"><a href="{% url 'logout'%}?next={{request.path}}">Logout</a></li>
    {% else %}
      <li class="list-group-item"><a href="{% url 'login'%}?next={{request.path}}">Login</a></li>
-   {% endif %} 
+   {% endif %}
             </ul>
-        <div class="col-md-8">
+
+        <div class="col-md-8" id="main">
             <div class="container-fluid">
             {% block content %}
             {% endblock %}
+   </div>
+   </div>
    </div>
    </div>
     </body>
